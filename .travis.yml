@@ -3,5 +3,6 @@ solution: Tik.Travis.sln
 mono: none
 dotnet: 1.1.5
 script:    # the following commands are just examples, use whatever your build process requires
+  - ls /usr/share/dotnet/sdk
   - dotnet restore
   - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
