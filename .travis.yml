@@ -2,6 +2,6 @@ language: csharp
 solution: Tik.Travis.sln
 mono: none
 script:    # the following commands are just examples, use whatever your build process requires
-  - innit-dotnet.sh
+  - ./innit-dotnet.sh
   - dotnet restore
   - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
