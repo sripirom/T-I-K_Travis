@@ -1,4 +1,5 @@
 language: csharp
+solution: Tik.Travis.sln
 mono: none
 dotnet: 2.0.0
 dist: trusty
@@ -12,5 +13,6 @@ addons:
     - dotnet-hostfxr-1.0.1
     - dotnet-sharedframework-microsoft.netcore.app-1.0.5
 
-script:
-  - build/travis.sh
+script:    # the following commands are just examples, use whatever your build process requires
+  - dotnet restore ./app/
+  - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
