@@ -3,16 +3,26 @@ solution: Tik.Travis.sln
 mono: none
 dotnet: 2.0.0
 dist: trusty
-
 addons:
   apt:
     sources:
-    - sourceline: 'deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main'
-      key_url: 'https://packages.microsoft.com/keys/microsoft.asc'
+    - sourceline: deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod
+        trusty main
+      key_url: https://packages.microsoft.com/keys/microsoft.asc
     packages:
     - dotnet-hostfxr-1.0.1
     - dotnet-sharedframework-microsoft.netcore.app-1.0.5
-
-script:    # the following commands are just examples, use whatever your build process requires
+  sonarcloud:
+    organization: "sripirom" # the key of the org you chose at step #3
+    token:
+      secure: YxOTge1bBOmYXcwty7kDymgHQ40BAwtrAvP4ufCOyiFlggdnFfScPP92zuGKdKDHJQnCJ81AtebAPl5K01HqqM6owoEA864fZzexQD6Ss9vY3Iz0hihQetgesOdqkUgM/IB+9oedojp1LETBnNxNi2n5Va3kcyPHXJJqcfWIFZn/6KyChlndaOAXa8DYJYIBUX5UgdmSMIZUGhTNQAbAa+4padfVOXWmKOAX1l+gjE6B+W6zwY9dYjTmUsIvlMfY303nRT8hvfal94u5GrQxcD2gIpxwvtXRgCOKeb/B94QzMlm15ZLc2CE5CcUQH7hHGykHNL+sdJr+HeKGsl1e6Vouc6BEkTVJYhfSN/dN7Z0s2M8tQi291/uMF7HZBvkh208WVyBuWdsOspFY9Nb99eUKJMm5g9larvhsI1M3rUePGBf/QAJ0dGtqGOHdUBjfEcu0O55s+bCBhmXMoV30E+nWN3vSb/ryFzeqAxXWIgxXP7i5ZaZ9xNEP56elyDUUx7gbLceNPNEF+gfZIJA9FnAvTRpJAYfs0zL9Cw3eP1eHob8fzeMk6FbFGCJD42PSj4GcXnCUz7PHh0vdIryyRTld9nHNHA21QfELPARtiwr7hFNRxw5GHNk/J2AeQoo6IRfw+L45yDGzFsRBL5Abhm2IuX9cQ3q96KOKaCVYLXg= # encrypted value of your token
+    branches:
+      - master
+      - develop
+script:
   - dotnet restore ./app/
   - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
+  - sonar-scanner
+env:
+  global:
+    secure: YxOTge1bBOmYXcwty7kDymgHQ40BAwtrAvP4ufCOyiFlggdnFfScPP92zuGKdKDHJQnCJ81AtebAPl5K01HqqM6owoEA864fZzexQD6Ss9vY3Iz0hihQetgesOdqkUgM/IB+9oedojp1LETBnNxNi2n5Va3kcyPHXJJqcfWIFZn/6KyChlndaOAXa8DYJYIBUX5UgdmSMIZUGhTNQAbAa+4padfVOXWmKOAX1l+gjE6B+W6zwY9dYjTmUsIvlMfY303nRT8hvfal94u5GrQxcD2gIpxwvtXRgCOKeb/B94QzMlm15ZLc2CE5CcUQH7hHGykHNL+sdJr+HeKGsl1e6Vouc6BEkTVJYhfSN/dN7Z0s2M8tQi291/uMF7HZBvkh208WVyBuWdsOspFY9Nb99eUKJMm5g9larvhsI1M3rUePGBf/QAJ0dGtqGOHdUBjfEcu0O55s+bCBhmXMoV30E+nWN3vSb/ryFzeqAxXWIgxXP7i5ZaZ9xNEP56elyDUUx7gbLceNPNEF+gfZIJA9FnAvTRpJAYfs0zL9Cw3eP1eHob8fzeMk6FbFGCJD42PSj4GcXnCUz7PHh0vdIryyRTld9nHNHA21QfELPARtiwr7hFNRxw5GHNk/J2AeQoo6IRfw+L45yDGzFsRBL5Abhm2IuX9cQ3q96KOKaCVYLXg=
