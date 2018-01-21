@@ -22,7 +22,7 @@ addons:
 script:
 - dotnet restore ./app/
 - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
-- sonar-scanner
+- sonar-scanner -X
 env:
   global:
   - secure: bdXBipRm0Ag6QxVpUSDS8ut8Y0j6w0G4LTuzbfDkr6fOshCUd7BzB3wOVuoVi2R3g6BzXsRb2gCGqvU+3LyGvPhYl4baX9A0D+4D34ku1yVNKzNnCKBHdZR1Jrc6+A2FiLI9jdwFaGIStzUy1Wu84V4dPsGv03OkFr3hKsT+ssP7yqjS/ard+Zn7CMaMTjBWGc9TDMGPjEqkE6BOruQA79h73AsdvIxylGEWlCR4WgtVxLEe1/N0BwbxkjWC1wzfm5fWhC1PgueDMdPYEMoOpsgY2rLEO2CYSrc6csobcAx8+v1YduT/q8Q0eUuZXigwdk9DG3RTXfxaMi+7IYIgJl96M03grCgjDI+K3vfMavbJCy3RN/X3L7M78HWRkROuefHXJ6LMG9HWusjqUutoNZg75V1b1yf32S4Ob6lCRi8rzp5wUjig2J/ysQt+wjB9hyzBi+6yyKKCDdVOs4WgcLDyq4PlDn0iizROIutHicu4mcjA8ZvSDx6A8ecRa/0RC57w2l0QhvfGIWDaA6BAOU0biv+kPlsIZf64LYSoUxDMMqxZc82UbhfkukJ5WHpekZg2oC//zlMR3T44ufGQtE29O89tNtWaQSEmJ5az5ZbUT/BOIeq6ikmW/txWk6qKeJOIQ88AI8gm228jy1eJTL6yPisPXp5UJ2S4+DQ8vB4=
