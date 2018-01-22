@@ -22,7 +22,7 @@ addons:
     
 install:
   - dotnet restore ./app/
-  - choco install "msbuild-sonarqube-runner" -y
+  - wget -O "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip"
 script:
   - mono SonarQube.Scanner.MSBuild.exe begin /k:"tik_travis-master" /n:"tik_travis" /v:"1.0.0" /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%SONAR_TOKEN% /d:"sonar.organization=sripirom-github"
   - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
