@@ -3,6 +3,9 @@ solution: Tik.Travis.sln
 dotnet: 2.0.0
 dist: trusty
 addons:
+  artifacts:
+    # ⋮
+    debug: true
   sonarcloud:
     organization: sripirom-github
     token:
