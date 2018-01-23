@@ -3,8 +3,16 @@ solution: Tik.Travis.sln
 mono: none
 dotnet: 2.0.0
 dist: trusty
-
+addons:
+  artifacts:
+    debug: true
+  sonarcloud:
+    organization: sripirom-github
+    token:
+      secure: $SONAR_TOKEN
+    branches:
+    - master
+    - develop
 script:
-- echo ${SONAR_SCANNER_HOME}
-- echo ${SONAR_TOKEN}
+- sonar-scanner
 
