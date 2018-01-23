@@ -1,0 +1,20 @@
+language: csharp
+solution: Tik.Travis.sln
+mono: none
+dotnet: 2.0.0
+dist: trusty
+addons:
+  artifacts:
+    debug: true
+  sonarcloud:
+    organization: sripirom-github
+    token:
+      secure: "$SONAR_TOKEN"
+    branches:
+    - master
+    - develop
+script:
+- sonar-scanner
+env:
+  global:
+    secure: XTveemY3dHwfvSC8esXMVLcCtNsA1mQVdj8xct7NWRgaZUPZ8uMQOMRrleuvLI+Yo5GMv/UttD+BSxUG1aH9/cc4nNJS8P4wNQbFnLoAJiHPTS+gDbIXh/1WeHpzpzn1UM2TuUvSrarbaKIWfQI/rhhLUoy6zxxt1oKqjTsEUfCEa3tqj2CjaYHI+g7zW8gIjs9/Y1wV121iiPqFZ+qULCxNzt+Cmyz9O9GRZB2JxB+RymSyMBZaDh0dUBDOIUN5KJddMigTO/C5IMNLVdsfgXoPPR030nMC4h4woBDeg8SPBt9jQjNV0tJdetNIOy9X/B/RyA7gc1TOK0ZgfxET2ww9Y2Fzwok57WLStQ116rKoL5rwnOopsWFAMqq2HqeGDv5sNsv5dJnQkkf7tWSggQvG8TahSCDSJts4ncb8+6QNGQf+SAt+04n9kMkHkaXk4/kb2IDaxHI9YUKb571oJMse77q+N47ITPiJUsQxUShYrBJUX7Rh6g3g393NXx6T+rQAMozFtfPPyL0pulfb2gnpq7rq6Wy+O4PXUHUMG6eAN6DTkELRF5blmgRThWf+9637ILnC1auNP0DIGce7kpbE/P3xE+KqZO6fkMcZ8Di5jBrmRlkpTXSQ+UtVgSv5qvrBGoPoGi9kM+ozgkOHIqtUpF1QnuAehZDAFfA7xZ0=
