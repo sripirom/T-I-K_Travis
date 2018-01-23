@@ -6,18 +6,17 @@ addons:
   sonarcloud:
     organization: sripirom-github
     token:
-      secure: bdXBipRm0Ag6QxVpUSDS8ut8Y0j6w0G4LTuzbfDkr6fOshCUd7BzB3wOVuoVi2R3g6BzXsRb2gCGqvU+3LyGvPhYl4baX9A0D+4D34ku1yVNKzNnCKBHdZR1Jrc6+A2FiLI9jdwFaGIStzUy1Wu84V4dPsGv03OkFr3hKsT+ssP7yqjS/ard+Zn7CMaMTjBWGc9TDMGPjEqkE6BOruQA79h73AsdvIxylGEWlCR4WgtVxLEe1/N0BwbxkjWC1wzfm5fWhC1PgueDMdPYEMoOpsgY2rLEO2CYSrc6csobcAx8+v1YduT/q8Q0eUuZXigwdk9DG3RTXfxaMi+7IYIgJl96M03grCgjDI+K3vfMavbJCy3RN/X3L7M78HWRkROuefHXJ6LMG9HWusjqUutoNZg75V1b1yf32S4Ob6lCRi8rzp5wUjig2J/ysQt+wjB9hyzBi+6yyKKCDdVOs4WgcLDyq4PlDn0iizROIutHicu4mcjA8ZvSDx6A8ecRa/0RC57w2l0QhvfGIWDaA6BAOU0biv+kPlsIZf64LYSoUxDMMqxZc82UbhfkukJ5WHpekZg2oC//zlMR3T44ufGQtE29O89tNtWaQSEmJ5az5ZbUT/BOIeq6ikmW/txWk6qKeJOIQ88AI8gm228jy1eJTL6yPisPXp5UJ2S4+DQ8vB4=
+      secure: eNifKA4SZMFYHfX9ciaN868VKqjeALVv+yRTg6vXndidYH1plmjddtrHZ+2eDdGQa43e5DsHkrNj8yGaL2pj3Rqhndiyw3VIVKd/H2MzoYzNuPsCGZXavUJBDzkQwTpEtKJTNBAFqhZr0OYQJByDbXVPmRw9SaBQKCsmkPbv4vktpopXqyYAi637sB9x+A9di/MAEZ2rlPOGZqhJxh+23Ry4yaIml2lW/a8soXN0AhVeKkd0+2tNK7TP05jJDCqNN5/0oIFsFNmqODQvQ0PGc7lxe1+piTHa7JHQfxSWe0/OVnz64ajOuhbkssnFcv4UkcXJ5m4V5snimrM3t0IIqd+y4hmKYcLaqGaAZxVba6jPoCJ6otGLMcOMnNvKsiVl+0fITwYTPU0lPsF9zCc0+w8CEUdD3EOxjoo48hMLV5RwtlwjOOZkPjYM0wnOun5s0BWISvQ98QrZVATeT6wIKLSvdtpVARZFqPy4E/mBbFCsbqFi/djpet0psXe6NXvRcflIJRVsEX4SPulrX76O8ttJvLpDRqFEApWKEQdxHQanTmVycRCNNWGoF4xADg1bhBapSrAhJnHzNiQT8SUkKBJiEyXiEHT0IuqDLu6LFKpexSnOi7brHwmx3lImxiJMYwork9kO3NrZy5fFWy+BeemDgmPD6MkE3DG1dtusIoQ=
     branches:
     - master
     - develop
-    
 install:
-  - dotnet restore ./app/
-  - wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
-  - unzip sonar-scanner-msbuild-4.0.2.892.zip
+- dotnet restore ./app/
+- wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
+- unzip sonar-scanner-msbuild-4.0.2.892.zip
 script:
-  - mono SonarQube.Scanner.MSBuild.exe begin /k:"tik_travis-master" /n:"tik_travis" /v:"1.0.0" /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=%SONAR_TOKEN% /d:"sonar.organization=sripirom-github" 
-  - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
-  - dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
-  - mono SonarQube.Scanner.MSBuild.exe end /d:sonar.login=%SONAR_TOKEN%
+- mono SonarQube.Scanner.MSBuild.exe begin /k:"tik_travis-master" /n:"tik_travis" /v:"1.0.0" /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=%SONAR_TOKEN% /d:"sonar.organization=sripirom-github"
+- dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
+- dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
+- mono SonarQube.Scanner.MSBuild.exe end /d:sonar.login=%SONAR_TOKEN%
 
