@@ -13,5 +13,10 @@ addons:
     branches:
     - master
     - develop
+install:
+- dotnet restore ./app/
+
 script:
+- dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
+- dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
 - sonar-scanner
