@@ -8,7 +8,7 @@ addons:
   sonarcloud:
     organization: sripirom-github
     token:
-      secure: xkqa9I3e1OflxZ7m2UWe2IWyRfELge/xK8WfONRbPH9XYLOwdRhP5uJfan5WcgRdS4KExJUf9cm/F9frSUwCxxZOEIR8NQYaIwlgJ28FJyOQflEalVoXfs79B9CHRwx+yexANLQ/1rotTMsSzikETzAn+ItL+POzMVbtn0a+bpBfFsnEBfswNmlLUZzktZ0M9dn56ON/Ns3Y0nKp1yTkZ3JreZhlqTM1GMkzernbR9GvbiCWG4RlsHooDQHtEkpxheE3eI1PLM7OKkbXN1+2HqMmg0pXicDrsekXtZTcHXaQn5/GgL04mz0c/r5eJ2gtb6qU4rmJ5VuScIRHwzSDq7tsyGk6gdFAgJryG0azeF8pl9zwyM1wK4CYhD16g0/6Uqhi+SHPLTuriNx+21ENuFHSHpurBoHBEcWEZ4mktNB5l3SkNPX1+6EoBBpoMFWoxqn1Kep5RHgMq4NmJ/MXfDa1YPfobn4wi6Xr6o8uEH1imbjxsORlNrs2Xi/E5uSH8k4fCwOgXkzhSujXbnBxXdzxro2twoN8p4I6zIdyEJlZld+9VB9y9OcvMxC0LGco39JTICQ+JwUCcAVsdbN3FMX2Ep49IpqazBGPVOj71PjhSsv1ZvgdT+qagadRstREDjxa8QemOfrX57IbV+VgY/ZOpLUfyJt27krPH5xKVCU=
+      secure: $SONAR_TOKEN
     branches:
     - master
     - develop
