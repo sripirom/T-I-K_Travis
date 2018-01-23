@@ -12,6 +12,8 @@ namespace Tik.Travis.Lib.Tests
         [InlineData(100, 1, 101)]
         public void Plus(int a, int b, int aspected)
         {
+            //var a = 1;
+            var result = a + b;
             Assert.Equal(aspected, a + b);
         }
     }
