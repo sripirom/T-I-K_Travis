@@ -4,12 +4,11 @@ dotnet: 2.0.0
 dist: trusty
 addons:
   artifacts:
-    # ⋮
     debug: true
   sonarcloud:
     organization: sripirom-github
     token:
-      secure: eNifKA4SZMFYHfX9ciaN868VKqjeALVv+yRTg6vXndidYH1plmjddtrHZ+2eDdGQa43e5DsHkrNj8yGaL2pj3Rqhndiyw3VIVKd/H2MzoYzNuPsCGZXavUJBDzkQwTpEtKJTNBAFqhZr0OYQJByDbXVPmRw9SaBQKCsmkPbv4vktpopXqyYAi637sB9x+A9di/MAEZ2rlPOGZqhJxh+23Ry4yaIml2lW/a8soXN0AhVeKkd0+2tNK7TP05jJDCqNN5/0oIFsFNmqODQvQ0PGc7lxe1+piTHa7JHQfxSWe0/OVnz64ajOuhbkssnFcv4UkcXJ5m4V5snimrM3t0IIqd+y4hmKYcLaqGaAZxVba6jPoCJ6otGLMcOMnNvKsiVl+0fITwYTPU0lPsF9zCc0+w8CEUdD3EOxjoo48hMLV5RwtlwjOOZkPjYM0wnOun5s0BWISvQ98QrZVATeT6wIKLSvdtpVARZFqPy4E/mBbFCsbqFi/djpet0psXe6NXvRcflIJRVsEX4SPulrX76O8ttJvLpDRqFEApWKEQdxHQanTmVycRCNNWGoF4xADg1bhBapSrAhJnHzNiQT8SUkKBJiEyXiEHT0IuqDLu6LFKpexSnOi7brHwmx3lImxiJMYwork9kO3NrZy5fFWy+BeemDgmPD6MkE3DG1dtusIoQ=
+      secure: xkqa9I3e1OflxZ7m2UWe2IWyRfELge/xK8WfONRbPH9XYLOwdRhP5uJfan5WcgRdS4KExJUf9cm/F9frSUwCxxZOEIR8NQYaIwlgJ28FJyOQflEalVoXfs79B9CHRwx+yexANLQ/1rotTMsSzikETzAn+ItL+POzMVbtn0a+bpBfFsnEBfswNmlLUZzktZ0M9dn56ON/Ns3Y0nKp1yTkZ3JreZhlqTM1GMkzernbR9GvbiCWG4RlsHooDQHtEkpxheE3eI1PLM7OKkbXN1+2HqMmg0pXicDrsekXtZTcHXaQn5/GgL04mz0c/r5eJ2gtb6qU4rmJ5VuScIRHwzSDq7tsyGk6gdFAgJryG0azeF8pl9zwyM1wK4CYhD16g0/6Uqhi+SHPLTuriNx+21ENuFHSHpurBoHBEcWEZ4mktNB5l3SkNPX1+6EoBBpoMFWoxqn1Kep5RHgMq4NmJ/MXfDa1YPfobn4wi6Xr6o8uEH1imbjxsORlNrs2Xi/E5uSH8k4fCwOgXkzhSujXbnBxXdzxro2twoN8p4I6zIdyEJlZld+9VB9y9OcvMxC0LGco39JTICQ+JwUCcAVsdbN3FMX2Ep49IpqazBGPVOj71PjhSsv1ZvgdT+qagadRstREDjxa8QemOfrX57IbV+VgY/ZOpLUfyJt27krPH5xKVCU=
     branches:
     - master
     - develop
@@ -23,4 +22,3 @@ script:
 - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
 - dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
 - mono SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN
-
