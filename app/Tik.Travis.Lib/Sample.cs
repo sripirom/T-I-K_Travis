@@ -15,7 +15,7 @@ namespace Tik.Travis.Lib
 
         public int Plus(int? a, int? b)
         {
-            return a + b;
+            return (int)a + (int)b;
         }
     }
 }
