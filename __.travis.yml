@@ -1,0 +1,22 @@
+language: csharp
+solution: Tik.Travis.sln
+mono: none
+dotnet: 2.0.0
+dist: trusty
+addons:
+  artifacts:
+    debug: true
+  sonarcloud:
+    organization: sripirom-github
+    token:
+      secure: "$SONAR_TOKEN"
+    branches:
+    - master
+    - develop
+install:
+- dotnet restore ./app/
+
+script:
+- dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
+- dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
+- sonar-scanner

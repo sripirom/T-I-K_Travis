@@ -1,0 +1,1 @@
+dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
