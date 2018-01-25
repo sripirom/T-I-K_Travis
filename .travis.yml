@@ -14,8 +14,6 @@ addons:
     - develop
 install:
 - dotnet restore ./app/
-- wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
-- unzip sonar-scanner-msbuild-4.0.2.892.zip
 script:
 - echo ${SONAR_SCANNER_HOME}
 - echo ${SONAR_TOKEN}
