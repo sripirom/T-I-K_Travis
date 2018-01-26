@@ -5,19 +5,8 @@ dist: trusty
 mono: none
 env:
   SONAR_SCANNER_HOME=/home/travis/build/sripirom/sonar-scanner-msbuild
-addons:
-  artifacts:
-    debug: true
-  sonarcloud:
-    organization: sripirom-github
-    token:
-      secure: $SONAR_TOKEN
-    branches:
-    - master
-    - develop
 install:
-  - dotnet restore ./app/
   - wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
-  - unzip sonar-scanner-msbuild-4.0.2.892.zip ${SONAR_SCANNER_HOME}
+  - unzip sonar-scanner-msbuild-4.0.2.892.zip $SONAR_SCANNER_HOME
 script:   
   - ls
