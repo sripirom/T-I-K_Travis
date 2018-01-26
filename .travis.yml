@@ -2,6 +2,8 @@ language: csharp
 solution: Tik.Travis.sln
 dotnet: 2.0.0
 dist: trusty
+env:
+  SONAR_SCANNER_HOME=/home/travis/build/sripirom/T-I-K_Travis
 addons:
   artifacts:
     debug: true
