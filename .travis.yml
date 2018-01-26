@@ -1,17 +1,5 @@
 language: csharp
-solution: Tik.Travis.sln
-dotnet: 2.0.0
 dist: trusty
-addons:
-  artifacts:
-    debug: true
-  sonarcloud:
-    organization: sripirom-github
-    token:
-      secure: "$SONAR_TOKEN"
-    branches:
-    - master
-    - develop
 install:
   - dotnet restore ./app/
   - wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
