@@ -18,12 +18,4 @@ install:
   - dotnet restore ./app/
   - wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
   - unzip sonar-scanner-msbuild-4.0.2.892.zip
-  - ls
-before_script:
-  - echo ${SONAR_SCANNER_HOME}
-  - echo ${SONAR_TOKEN}
-  - mono SonarQube.Scanner.MSBuild.exe begin /k:"tik_travis" /n:"tik_travis" /v:"1.0.0" /d:sonar.host.url=https://sonarcloud.io /d:sonar.login=$SONAR_TOKEN /d:sonar.organization=sripirom-github /s:/home/travis/build/sripirom/T-I-K_Travis/meSonarQube.Analysis.xml
-script:
-  - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
-  - dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
-after_success: mono SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN 
+script: sh sonarbuild.sh
