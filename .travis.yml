@@ -1,5 +1,17 @@
 language: csharp
+solution: Tik.Travis.sln
+dotnet: 2.0.0
 dist: trusty
+addons:
+  artifacts:
+    debug: true
+  sonarcloud:
+    organization: sripirom-github
+    token:
+      secure: $SONAR_TOKEN
+    branches:
+    - master
+    - develop
 install:
   - dotnet restore ./app/
   - wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.0.2.892/sonar-scanner-msbuild-4.0.2.892.zip
@@ -12,5 +24,4 @@ before_script:
 script:
   - dotnet build ./app/Tik.Travis.sln -c Release -f netcoreapp2.0
   - dotnet test ./app/Tik.Travis.Lib.Tests/Tik.Travis.Lib.Tests.csproj
-  - ls
 after_success: mono SonarQube.Scanner.MSBuild.exe end /d:sonar.login=$SONAR_TOKEN 
